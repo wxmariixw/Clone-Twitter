@@ -5,7 +5,7 @@
       <div class="flex content-center max-w-screen-xl h-16 m-auto">
         <!--botões-->
         <div class="flex justify-between inline-block w-1/3 h-16">
-          <button v-for="tab in tabs" class="w-auto m-2 p-2 text-sm text-blue-400 font-semibold hover:bg-blue-50 hover:text-blue-700 rounded-full">
+          <button v-for="tab in tabs" class="w-auto m-2 text-base text-blue-400 font-semibold hover:bg-blue-50 hover:text-blue-700 rounded-full">
             <fa :icon="`${tab.icons}`" class="inline-block"/>
             <p class="inline-block">{{tab.title}}</p>
           </button>
@@ -16,8 +16,8 @@
         </div>
         <!--pesquisa e configurações-->
         <div class="flex inline-block w-1/3 h-16 place-content-around">
-          <form class="inline-block my-5 mx-7">
-            <input class=" border-2 border-gray-700 rounded-full">
+          <form class="inline-block my-3 mx-4">
+            <input class="px-3 py-1 border-2 border-gray-700 rounded-full">
           </form>
           <button v-for="bot in bott" class=" flex my-3 mx-1 pt-1.5 text-3xl text-blue-400 hover:bg-blue-50 hover:text-blue-700 rounded-full">
             <fa :icon="`${bot.icone}`" class="inline-block mx-2 -my-0.5"/>
