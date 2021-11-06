@@ -32,20 +32,20 @@
       <div class="grid grid-cols-1 divide-y divide-black divide-opacity-20 w-2/5 h-full border-2 border-gray-300 rounded-3xl bg-white shadow-md px-2">
         <!--cabeçalho-->
         <div class="flex inline-block w-full justify-start">
-          <p class="flex inline-block text-xl mt-2 mb-4 ml-2 font-semibold text-gray-400">Tweets</p>
+          <p class="flex inline-block w-full text-xl my-2 ml-2 font-semibold text-gray-400">Tweets</p>
         </div>
         <!--tweet-->
-        <div v-for="tweet in tweets" class="flex w-full">
-          <div class="flex inline-block">
-            <img :src="`${tweet.src}`" alt="icones" class="flex inline-block w-14 h-14 m-1 rounded-full"/>
+        <div v-for="tweet in tweets" class="flex w-full justify-center py-2">
+          <div class="inline-block">
+            <img :src="`${tweet.src}`" alt="icones" class="flex inline-block w-14 h-14 my-2 rounded-xl"/>
           </div>
-          <div class="w-4/5 m-2">
-            <div class="flex h-14">
-              <p class="flex place-self-center inline-block mx-2">{{tweet.name}} </p>
-              <p class="flex place-self-center inline-block mx-2">{{tweet.user}} </p>
+          <div class="w-5/6">
+            <div class="flex h-8 mt-2 mb-1 ml-2">
+              <p class="flex place-self-end inline-block text-gray-700 font-bold text-xl">{{tweet.name}} </p>
+              <p class="flex place-self-end inline-block mx-1 text-gray-500 text-sm">{{tweet.user}} </p>
             </div>
-            <div class="grid grid-rows-1 nline-block">
-              <p class="">{{tweet.text}} </p>
+            <div class="grid grid-rows-1 mx-2 ">
+              <p class="text-justify">{{tweet.text}} </p>
             </div>
           </div>
         </div>
