@@ -16,19 +16,19 @@
         </div>
         <!--pesquisa e configurações desktop-->
         <div class="flex inline-block w-1/3 h-16 justify-between">
-          <input type="text" id="busca" class=" w-1/2 px-3 py-1 my-4 mx-4 border-2 border-gray-700 rounded-full bg-gray-200 bg-opacity-10 placeholder-gray-900 placeholder-opacity-25 focus:placeholder-opacity-75" placeholder="Busca">
+          <input type="search" id="busca" class=" w-1/2 px-3 py-1 my-4 mx-4 border-2 border-gray-700 rounded-full bg-gray-200 bg-opacity-10 placeholder-gray-900 placeholder-opacity-25 focus:placeholder-opacity-75" placeholder="Busca">
           <button v-for="bot in bott" class=" flex my-3 mx-1 pt-1.5 text-3xl text-blue-400 hover:bg-blue-50 hover:text-blue-700 rounded-full">
             <fa :icon="`${bot.icone}`" class="inline-block mx-2 -my-0.5"/>
           </button>
         </div>  
       </div>
     </nav>
-    <div class="flex content-center max-w-screen-xl justify-around m-auto my-5">
+    <div class="flex content-center max-w-screen-xl justify-around m-auto my-2">
       <!--perfil-->
       <div class="flex justify-around w-1/4 h-full border-2 border-gray-300 rounded-3xl bg-white shadow-md">
         <div class="w-11/12">
           <div class="flex justify-around">
-            <img src="https://images.unsplash.com/photo-1572542006263-35bf4f578b6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80" alt="cover" class="object-cover w-full h-28 -my-2 rounded-md"/>
+            <img src="https://images.unsplash.com/photo-1572542006263-35bf4f578b6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80" alt="cover" class="object-cover w-full h-28 -my-1 rounded-md"/>
           </div>
           <div class="flex">
             <img src="https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" alt="icone principal" class="w-16 ml-2 -mt-2 rounded-md inline-block"/>
@@ -37,14 +37,17 @@
                 <p class="text-gray-500 text-xs">@iluvspiderman</p>
               </div>
           </div>
-          <div class="flex justify-around mt-5 text-center text-xs">
-            <div v-for="principal in principals" class="w-20">
-              <p class="mb-1 text-gray-500 font-semibold">{{principal.title}}</p>
-              <p class="mb-2 text-gray-900 font-bold">{{principal.number}}</p>
+          <div class="divide-y divide-black divide-opacity-20 w-full">
+              <div class="flex justify-around mt-5 text-center text-xs">
+                <div v-for="principal in principals" class="w-20">
+                  <p class="mb-1 text-gray-500 font-semibold">{{principal.title}}</p>
+                  <p class="mb-2 text-gray-900 font-bold">{{principal.number}}</p>
+                
+              </div>
             </div>
-          </div>
-          <div>
-            <input>
+            <div class="flex justify-around ">
+              <input type="text" class="w-full h-8 my-3 p-1 border-2 border-gray-300 rounded-md placeholder-gray-900 placeholder-opacity-25 focus:placeholder-opacity-75" placeholder="Escreva um novo Tweet...">
+            </div>
           </div>
         </div>
       </div>
