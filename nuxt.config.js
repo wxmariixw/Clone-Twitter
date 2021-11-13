@@ -38,7 +38,8 @@ export default {
     component: 'fa',
     icons: {
       solid: true,
-      brands: true
+      brands: true,
+      arrows: true,
     },
   },
 

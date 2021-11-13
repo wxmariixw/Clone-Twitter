@@ -23,30 +23,49 @@
         </div>  
       </div>
     </nav>
+    <!--conteudo-->
     <div class="flex content-center max-w-screen-xl justify-around m-auto my-2">
-      <!--perfil-->
-      <div class="flex justify-around w-1/4 h-full border-2 border-gray-300 rounded-3xl bg-white shadow-md">
-        <div class="w-11/12">
-          <div class="flex justify-around">
-            <img src="https://images.unsplash.com/photo-1572542006263-35bf4f578b6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80" alt="cover" class="object-cover w-full h-28 -my-1 rounded-md"/>
-          </div>
-          <div class="flex">
-            <img src="https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" alt="icone principal" class="w-16 ml-2 -mt-2 rounded-md inline-block"/>
+      <!--sessão esquerda-->
+      <div class="flex flex-wrap justify-around w-1/4 h-full">
+        <!--perfil-->
+        <div class="flex justify-around h-full border-2 border-gray-300 rounded-3xl bg-white shadow-md">
+          <div class="w-11/12">
+            <!--usuário-->
+            <div class="flex justify-around">
+              <img src="https://images.unsplash.com/photo-1572542006263-35bf4f578b6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1031&q=80" alt="cover" class="object-cover w-full h-28 -my-1 rounded-md"/>
+            </div>
+            <div class="flex">
+              <img src="https://images.unsplash.com/photo-1608889335941-32ac5f2041b9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80" alt="icone principal" class="w-16 ml-2 -mt-2 rounded-md inline-block"/>
               <div class="flex flex-wrap inline-block px-2 content-end">
                 <p class="text-gray-700 font-bold text-xl">I Love Spiderman</p>
                 <p class="text-gray-500 text-xs">@iluvspiderman</p>
               </div>
-          </div>
-          <div class="divide-y divide-black divide-opacity-20 w-full">
+            </div>
+            <!--seguidores-->
+            <div class="divide-y divide-black divide-opacity-20 w-full">
               <div class="flex justify-around mt-5 text-center text-xs">
                 <div v-for="principal in principals" class="w-20">
                   <p class="mb-1 text-gray-500 font-semibold">{{principal.title}}</p>
                   <p class="mb-2 text-gray-900 font-bold">{{principal.number}}</p>
-                
+                </div>  
               </div>
             </div>
+            <!--postar tweet-->
             <div class="flex justify-around ">
               <input type="text" class="w-full h-8 my-3 p-1 border-2 border-gray-300 rounded-md placeholder-gray-900 placeholder-opacity-25 focus:placeholder-opacity-75" placeholder="Escreva um novo Tweet...">
+            </div>
+          </div>
+        </div>
+        <!--trends-->
+        <div class="flex justify-around w-full h-full my-5 border-2 border-gray-300 rounded-3xl bg-white shadow-md ">
+          <div class="w-11/12 divide-y divide-black divide-opacity-20 ">
+            <div class="flex inline-block justify-start">
+              <p class="flex inline-block text-xl mt-2 font-semibold text-gray-400">Trends</p>
+            </div>
+            <div class="mt-2 mb-1 py-2 text-sm leading-7">
+              <ul>
+                <li><button v-for="trend in trends" class="block text-gray-800 font-medium">{{trend.tag}}</button></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -67,16 +86,54 @@
               <p class="flex place-self-end inline-block text-gray-700 font-bold text-xl">{{tweet.name}} </p>
               <p class="flex place-self-end inline-block mx-1 text-gray-500 text-sm">{{tweet.user}} </p>
             </div>
-            <div class="grid grid-rows-1 w-auto">
+            <div class="grid grid-rows-1 w-auto text-sm">
               <p class="text-justify">{{tweet.text}} </p>
+            </div>
+            <!--ações-->
+            <div class="flex justify-between text-gray-500 my-1 text-xs w-full">
+              <div class="w-1/3">
+                <button class="flex">Expand</button>
+              </div>
+              <div class="flex flex-wrap">
+                <button v-for="action in actions" class="mx-1 transform focus:text-yellow-500">
+                  <fa :icon="`${action.icon}`" class="inline-block"/>
+                  <p class="inline-block">{{action.title}}</p>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!--sugestions-->
-      <div class="flex justify-around w-1/4 h-full border-2 border-gray-300 rounded-3xl bg-white shadow-md">
-        <p>a</p>
+      <div class="flex flex-wrap justify-around w-1/4 h-full">
+        <div class="flex justify-around w-full h-full border-2 border-gray-300 rounded-3xl bg-white shadow-md ">
+          <div class="w-11/12 divide-y divide-black divide-opacity-20 ">
+            <div class="flex inline-block justify-start">
+              <p class="inline-block text-xl mt-2 font-semibold text-gray-400">Sugestões</p>
+            </div>
+            <div v-for="sugestions in sugest" class="flex my-1 py-1">
+              <div class="flex inline-block">
+                <img :src="`${sugestions.src}`" alt="icones" class="flex inline-block w-14 h-14 place-self-center rounded-xl"/>
+              </div>
+              <div class="flex flex-wrap w-5/6 align-middle">
+                <div class="flex flex wrap h-8 justify-between">
+                  <div class="">
+                    <p class="place-self-center inline-block mt-2 ml-2 text-gray-700 font-bold text-base">{{sugestions.name}} </p>
+                    <p class="place-self-center inline-block mt-2 mx-1 text-gray-500 text-xs">{{sugestions.user}} </p>
+                  </div>
+                  <div class="flex ml-8">
+                    <button class="inline-block text-xl font-semibold text-gray-400">x</button>
+                  </div>
+                </div>
+                <div class="ml-4 mt-2">
+                  <button class="px-2 py-1 text-xs opacity-60 font-bold border border-gray-900 rounded shadow-md hover:bg-gray-200 hover:font-bold hover:opacity-100">Seguir</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -105,6 +162,18 @@ export default {
         {title: 'FOLLOWING' , number: '200'},
         {title: 'FOLLOWERS', number: '200'},
       ],
+      trends: [
+        {tag: '#superheros'},
+        {tag: '#homemaranha'},
+        {tag: '#supershock'},
+        {tag: '#vilao'},
+        {tag: '#cidadedestruida'},
+        {tag: '#superman'},
+        {tag: '#flash'},
+        {tag: '#mulhermaravilha'},
+        {tag: '#lanternaverde'},
+        {tag: '#thor'},
+      ],
       tweets: [
         {src: 'https://pbs.twimg.com/media/EcGdw6xXsAMkqGF.jpg',user: '@blackspider', name: 'Black Spider', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin sem purus, at blandit leo cursus tincidunt. Vestibulum vulputate nulla nisi, vel ullamcorper ex tempor sed. Integer nec quam in erat ullamcorper dictum. Morbi interdum porta ipsum, a vestibulum lacus vulputate non. Donec congue lorem non euismod lobortis. Donec et.'},
         {src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVPX7Fm7yD7MHd1RpTo8OMc1fEY9xP7HsgMuIvb8TX59Q8MeCyDZhgWb21zqrIAfGDheg&usqp=CAU',user: '@eletricshock', name: 'Eletric Shock', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque massa.'},
@@ -114,7 +183,17 @@ export default {
         {src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVPX7Fm7yD7MHd1RpTo8OMc1fEY9xP7HsgMuIvb8TX59Q8MeCyDZhgWb21zqrIAfGDheg&usqp=CAU',user: '@eletricshock', name: 'Eletric Shock', text: 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..'},
         {src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlnCXSeYCzYx2nY3dx65tLM5PISB9eO-GyZh-AKfC8m8-FfkDrpaESTi8B7ZCc7BKvlow&usqp=CAU',user: '@strogest', name: 'Strongest', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing.'},
         {src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7H_WYrpsbfP-KaeG1pMHKtOe9NulDKxVLUgztsFI5QdGxGheVpywIJnzP7G4Fu2k2lrw&usqp=CAU',user: '@coldfire', name: 'Cold Fire', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed.'},
-      ]
+      ],
+      actions: [
+        {icon: 'arrow-left', title: 'Responder'},
+        {icon: 'share', title: 'Retuitar'},
+        {icon: 'star', title: 'Favoritar'},
+        {icon: 'plus', title: 'Mais'}
+      ],
+      sugest: [
+        {src: 'https://pbs.twimg.com/media/EcGdw6xXsAMkqGF.jpg',user: '@blackspider', name: 'Black Spider'},
+        {src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVPX7Fm7yD7MHd1RpTo8OMc1fEY9xP7HsgMuIvb8TX59Q8MeCyDZhgWb21zqrIAfGDheg&usqp=CAU',user: '@eletricshock', name: 'Eletric Shock'},
+      ],
     }
   }
 }
